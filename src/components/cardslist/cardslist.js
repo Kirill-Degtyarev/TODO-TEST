@@ -21,7 +21,7 @@ export default function CardList({
 
     useEffect(() => {
         TagsAction.getTags(setTags, workSpaceId);
-    }, []);
+    }, [workSpaceId]);
 
     const dragOverCard = (e) => {
         e.preventDefault();
@@ -103,8 +103,7 @@ export default function CardList({
                         }}
                         onDrop={(e) => {
                             dropCard(e, card);
-                        }}
-                    >
+                        }}>
                         <div className="card-tags">
                             {tags
                                 .filter((tag) => tag.cardids.includes(card.id))
@@ -113,8 +112,7 @@ export default function CardList({
                                         <div
                                             className="tag"
                                             key={tag.id}
-                                            style={{ backgroundColor: tag.color }}
-                                        >
+                                            style={{ backgroundColor: tag.color }}>
                                             {tag.name}
                                         </div>
                                     );

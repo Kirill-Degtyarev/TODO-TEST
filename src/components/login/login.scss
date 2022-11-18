@@ -31,7 +31,7 @@ aside {
 
 html,
 body {
-    font-family: "Stem";
+    font-family: 'Stem';
     height: 100%;
     width: 100%;
     font-size: 100%;
@@ -43,7 +43,7 @@ body {
 }
 
 input,
-input[type="button"],
+input[type='button'],
 textarea {
     font-family: inherit;
 }
@@ -52,11 +52,11 @@ input::-ms-clear {
     display: none;
 }
 
-input[type="button"] {
+input[type='button'] {
     cursor: pointer;
 }
 
-input[type="button"]::-moz-focus-inner {
+input[type='button']::-moz-focus-inner {
     padding: 0;
     border: 0;
 }
@@ -193,7 +193,7 @@ body {
     align-items: center;
     margin: 0px 0px 21px 0px;
 }
-.autorization__form-password input[type="text"] {
+.autorization__form-password input[type='text'] {
     font-size: 16px;
 }
 .autorization__form-remeber {
@@ -217,7 +217,7 @@ body {
     margin: 24px 0px 50px 0px;
 }
 
-.autorization__form-log input[type="button"] {
+.autorization__form-log input[type='button'] {
     background-color: #304ffd;
     padding: 10px 179px 9px 178px;
     font-weight: 500;
@@ -234,12 +234,12 @@ body {
     transition: 0.2s;
 }
 
-.autorization__form-log input[type="button"]:hover {
+.autorization__form-log input[type='button']:hover {
     top: 3px;
     box-shadow: 0 3px 0px #0026ff;
     background-color: #304ffd;
 }
-.autorization__form-log input[type="button"]:active {
+.autorization__form-log input[type='button']:active {
     top: 4px;
     box-shadow: 0 2px 0px #0026ff;
 }
@@ -335,7 +335,7 @@ body {
 }
 
 .password__input-icon {
-    background-image: url("../../resources/Hide.svg");
+    background-image: url('../../resources/Hide.svg');
     background-repeat: no-repeat;
     background-position: right;
     display: flex;
@@ -380,7 +380,7 @@ body {
     .autorization__form-log {
         margin: 24px 0px 34px 0px;
     }
-    .autorization__form-log input[type="button"] {
+    .autorization__form-log input[type='button'] {
         padding: 10px 140px 9px 140px;
     }
     .autorization__title {
@@ -431,7 +431,7 @@ body {
     .autorization__form-password {
         margin: 0px 0px 24px 0px;
     }
-    .autorization__form-log input[type="button"] {
+    .autorization__form-log input[type='button'] {
         padding: 10px 104px 9px 103px;
     }
     .autorization__google-btn {
@@ -476,7 +476,7 @@ aside {
 
 html,
 body {
-    font-family: "Stem";
+    font-family: 'Stem';
     height: 100%;
     width: 100%;
     font-size: 100%;
@@ -517,7 +517,6 @@ h6 {
 body {
     background-color: #e9f3f5;
 }
-
 
 .body__registration {
     display: flex;
@@ -649,7 +648,7 @@ body {
     flex-direction: column;
 }
 
-.registration__form-log input[type="button"] {
+.registration__form-log input[type='button'] {
     background-color: #304ffd;
     padding: 10px 126px 9px 123px;
     max-width: 400px;
@@ -665,12 +664,12 @@ body {
     transition: 0.2s;
 }
 
-.registration__form-log input[type="button"]:hover {
+.registration__form-log input[type='button']:hover {
     top: 2px;
     box-shadow: 0 3px 0px #0026ff;
     background-color: #304ffd;
 }
-.registration__form-log input[type="button"]:active {
+.registration__form-log input[type='button']:active {
     top: 4px;
     box-shadow: 0 2px 0px #0026ff;
     background-color: #304ffd;
@@ -845,7 +844,7 @@ body {
     .registration__form-log {
         margin: 27px 0px 66px 0px;
     }
-    .registration__form-log input[type="button"] {
+    .registration__form-log input[type='button'] {
         padding: 10px 86px 9px 85px;
     }
     .registration__footer {
@@ -899,7 +898,7 @@ body {
     .registration__email-line {
         width: 15px;
     }
-    .registration__form-log input[type="button"] {
+    .registration__form-log input[type='button'] {
         padding: 10px 51px 9px 51px;
     }
     .registration__form-confirm {
@@ -931,7 +930,6 @@ body {
         margin: 0px 0px 1px 199px;
     }
 }
-
 
 .recovery__img {
     display: flex;
@@ -984,7 +982,7 @@ body {
     flex-direction: column;
 }
 
-.recovery__form-log input[type="button"] {
+.recovery__form-log input[type='button'] {
     background-color: #304ffd;
     padding: 10px 122px 9px 122px;
     max-width: 400px;
@@ -999,12 +997,12 @@ body {
     top: 0;
     transition: 0.2s;
 }
-.recovery__form-log input[type="button"]:hover {
+.recovery__form-log input[type='button']:hover {
     top: 2px;
     box-shadow: 0 3px 0px #0026ff;
     background-color: #304ffd;
 }
-.recovery__form-log input[type="button"]:active {
+.recovery__form-log input[type='button']:active {
     top: 4px;
     box-shadow: 0 2px 0px #0026ff;
     background-color: #304ffd;
@@ -1067,7 +1065,7 @@ body {
     .recovery__img {
         margin-top: 64px;
     }
-    .recovery__form-log input[type="button"] {
+    .recovery__form-log input[type='button'] {
         padding: 10px 85px 9px 80px;
     }
     .recovery__form-email {
@@ -1097,7 +1095,7 @@ body {
         width: 180px;
         height: 180px;
     }
-    .recovery__form-log input[type="button"] {
+    .recovery__form-log input[type='button'] {
         padding: 10px 48px 9px 50px;
     }
     .recovery__form-email {

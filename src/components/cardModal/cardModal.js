@@ -47,7 +47,7 @@ export default function CardModal({
     useEffect(() => {
         CardHistoryAction.getHistory(setHistory, card.id);
         TaskListAction.getTaskList(card.id, setTaskList);
-    }, []);
+    }, [card.id]);
     function resizeTextArea(e) {
         e.target.style.height = 'auto';
         e.target.style.height = e.target.scrollHeight + 'px';
@@ -190,8 +190,7 @@ export default function CardModal({
             className="card-modal-container"
             onClick={(e) => {
                 closeCardModal(e);
-            }}
-        >
+            }}>
             {isRemovable ? (
                 <RemoveModal
                     setIsRemovable={setIsRemovable}
@@ -229,8 +228,7 @@ export default function CardModal({
                         <div
                             className="card-modal-caption"
                             onClick={() => setEditCaption(true)}
-                            draggable={false}
-                        >
+                            draggable={false}>
                             {!editCaption ? (
                                 card.caption || 'Нажмите чтобы добавить описание'
                             ) : (
@@ -307,8 +305,7 @@ export default function CardModal({
                                         dir="auto"
                                         data-autosize="true"
                                         value={commentText}
-                                        id="comment"
-                                    ></textarea>
+                                        id="comment"></textarea>
                                     <div className="comment-option">
                                         <input
                                             onClick={() => {
@@ -342,8 +339,7 @@ export default function CardModal({
                                         return (
                                             <div
                                                 key={h.id}
-                                                className="card-modal-history-move-container"
-                                            >
+                                                className="card-modal-history-move-container">
                                                 <div className="card-modal-history-move-delay">
                                                     {h.creatorAvatar !== null ? (
                                                         <img
@@ -401,8 +397,7 @@ export default function CardModal({
                                                                 file.type === 'other file' ? (
                                                                     <div
                                                                         key={index}
-                                                                        className="other-file"
-                                                                    >
+                                                                        className="other-file">
                                                                         <img
                                                                             alt="file"
                                                                             className="other-file-image"
@@ -459,8 +454,7 @@ export default function CardModal({
                                         <div
                                             key={tag.id}
                                             className="card-modal-tag"
-                                            style={{ backgroundColor: tag.color }}
-                                        >
+                                            style={{ backgroundColor: tag.color }}>
                                             {tag.name}
                                         </div>
                                     );
@@ -533,8 +527,7 @@ export default function CardModal({
                                                         onClick={() => {
                                                             moveToBoard(board.id);
                                                         }}
-                                                        key={board.id}
-                                                    >
+                                                        key={board.id}>
                                                         "{board.name}"
                                                     </li>
                                                 );

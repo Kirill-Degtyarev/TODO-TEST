@@ -18,7 +18,7 @@ export default function AddUsers({ workspaceId, card, setCurrentCard, setAddUser
             setWorkspace(ws);
             UsersAction.getWorkspaceUsers(ws.users, setUsers);
         });
-    }, []);
+    }, [workspaceId]);
     async function addUserInCard(email, name) {
         if (card.users.filter((cardUser) => cardUser === email).length === 0) {
             card.users.push(email);
@@ -75,8 +75,7 @@ export default function AddUsers({ workspaceId, card, setCurrentCard, setAddUser
                                           addUserInCard(user.email, user.name);
                                       }}
                                       className="add-user"
-                                      key={user.id}
-                                  >
+                                      key={user.id}>
                                       {user.avatarURL ? (
                                           <img
                                               className="card-modal-history-move-creator-avatar"
@@ -124,8 +123,7 @@ export default function AddUsers({ workspaceId, card, setCurrentCard, setAddUser
                                       addUserInCard(user.email, user.name);
                                   }}
                                   className="add-user"
-                                  key={user.id}
-                              >
+                                  key={user.id}>
                                   {user.avatarURL ? (
                                       <img
                                           className="card-modal-history-move-creator-avatar"

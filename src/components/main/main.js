@@ -19,7 +19,7 @@ export default function Main({ user }) {
 
     useEffect(() => {
         WorkSpaceAction.getWorkSpaces(setWorkSpaces, user.email);
-    }, []);
+    }, [user.email]);
 
     function selectWorkSpace(e) {
         const eventData = e.target.value.split(';');
@@ -42,8 +42,7 @@ export default function Main({ user }) {
                         defaultValue={0}
                         onChange={(e) => {
                             selectWorkSpace(e);
-                        }}
-                    >
+                        }}>
                         <option value={0} disabled>
                             Выберите рабочую область
                         </option>
@@ -52,8 +51,7 @@ export default function Main({ user }) {
                                   return (
                                       <option
                                           value={workSpace.id + ';' + workSpace.name}
-                                          key={workSpace.id}
-                                      >
+                                          key={workSpace.id}>
                                           {workSpace.name}
                                       </option>
                                   );
@@ -67,8 +65,7 @@ export default function Main({ user }) {
                             className="notify-container"
                             onClick={(e) => {
                                 notificationListOpen(e);
-                            }}
-                        >
+                            }}>
                             <img className="notify-image" alt="notify" src={notifyImage} />
                             {notifications.length > 0 ? (
                                 <div className="notify-count">{notifications.length}</div>
@@ -91,8 +88,7 @@ export default function Main({ user }) {
                         className="menu-container"
                         onClick={() => {
                             setOpenMenu(!openMenu);
-                        }}
-                    >
+                        }}>
                         <div className="menu-line"></div>
                         <div className="menu-line"></div>
                         <div className="menu-line"></div>

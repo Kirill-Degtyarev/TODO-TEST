@@ -26,7 +26,7 @@ export default function AddTags({ cardId, workSpaceId }) {
     const [newColor, setNewColor] = useState('');
     useEffect(() => {
         TagsAction.getTags(setTags, workSpaceId);
-    }, []);
+    }, [workSpaceId]);
     async function addRemoveTagFromCard(tag) {
         if (tag.cardids.includes(cardId)) {
             tag.cardids = tag.cardids.filter((cardid) => cardid !== cardId);
@@ -93,8 +93,7 @@ export default function AddTags({ cardId, workSpaceId }) {
                     )}
                     <div
                         style={{ top: `${possition}px` }}
-                        className="modal-edit-tag-content-container"
-                    >
+                        className="modal-edit-tag-content-container">
                         Название
                         <input
                             value={newName}
@@ -113,8 +112,7 @@ export default function AddTags({ cardId, workSpaceId }) {
                                             setNewColor(color);
                                         }}
                                         className="tag-color"
-                                        style={{ backgroundColor: color }}
-                                    >
+                                        style={{ backgroundColor: color }}>
                                         {newColor === color ? '✔' : ''}
                                     </div>
                                 );
@@ -157,8 +155,7 @@ export default function AddTags({ cardId, workSpaceId }) {
                                   width: 150 + 'px',
                                   fontSize: 16 + 'px',
                                   color: '#fafafa',
-                              }}
-                          >
+                              }}>
                               {tag.name}
                               {cardId ? (
                                   tag.cardids.includes(cardId) ? (

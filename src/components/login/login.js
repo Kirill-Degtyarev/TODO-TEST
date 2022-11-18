@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AuthAction from '../../actions/authAction';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase-config';
-import './login.css';
+import './login.scss';
 import lockImage from '../../resources/Lock.svg';
 export default function Login({ setUser }) {
     const [registrationDisplayName, setRegistrationDisplayName] = useState('');
@@ -105,8 +105,7 @@ export default function Login({ setUser }) {
                                 onMouseLeave={() => hidePassword()}
                                 onMouseEnter={() => {
                                     lookPassword();
-                                }}
-                            ></span>
+                                }}></span>
                         </div>
                         <div className="autorization__form-remeber">
                             <a
@@ -114,8 +113,7 @@ export default function Login({ setUser }) {
                                 onClick={(e) => {
                                     changePageOnReset(e);
                                 }}
-                                className="form__remeber-link"
-                            >
+                                className="form__remeber-link">
                                 Забыли пароль?
                             </a>
                         </div>
@@ -135,8 +133,7 @@ export default function Login({ setUser }) {
                             onClick={(e) => {
                                 changePageOnReset(e);
                             }}
-                            className="form__remeber-link-phone"
-                        >
+                            className="form__remeber-link-phone">
                             Забыли пароль?
                         </a>
                     </form>
@@ -218,8 +215,7 @@ export default function Login({ setUser }) {
                                 href="/"
                                 onClick={(e) => {
                                     changePageOnAuthorization(e);
-                                }}
-                            >
+                                }}>
                                 Войти
                             </a>
                         </h2>
