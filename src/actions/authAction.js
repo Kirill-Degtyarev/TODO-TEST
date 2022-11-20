@@ -1,6 +1,13 @@
-import { createUserWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
-import { auth } from "../firebase-config";
-import UsersAction from "./usersAction";
+import {
+    createUserWithEmailAndPassword,
+    sendEmailVerification,
+    sendPasswordResetEmail,
+    signInWithEmailAndPassword,
+    signOut,
+    updateProfile,
+} from 'firebase/auth';
+import { auth } from '../firebase-config';
+import UsersAction from './usersAction';
 
 export default class AuthAction {
     static async logout() {
@@ -18,7 +25,11 @@ export default class AuthAction {
     }
     static async register(registerEmail, registerPassword, displayName) {
         try {
-            const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
+            const user = await createUserWithEmailAndPassword(
+                auth,
+                registerEmail,
+                registerPassword,
+            );
             await updateProfile(user.user, {
                 displayName: displayName,
             });

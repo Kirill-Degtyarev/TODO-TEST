@@ -5,7 +5,7 @@ import AuthAction from '../../actions/authAction';
 import BoardsAction from '../../actions/boardsAction';
 import UserNotificationAction from '../../actions/userNotificationAction';
 import notifyImage from '../../resources/notify.png';
-import './main.css';
+import './main.scss';
 import NotificationList from '../notificationlist/notificationlist';
 import Menu from '../menu/menu';
 

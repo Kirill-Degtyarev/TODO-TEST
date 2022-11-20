@@ -1,4 +1,4 @@
-import './tasklist.css';
+import './tasklist.scss';
 import removeImg from '../../resources/remove.png';
 import React, { useState } from 'react';
 import TaskListAction from '../../actions/taskListAction';
@@ -75,8 +75,7 @@ export default function TaskList({ tasks, cardId }) {
                         onChange={(e) => {
                             updateTaskComplete(e, t.id);
                         }}
-                        className="task"
-                    >
+                        className="task">
                         <div className="task__text" draggable={false}>
                             <input type="checkbox" defaultChecked={t.isComplete} />
                             {edit === t.id ? (
@@ -99,8 +98,7 @@ export default function TaskList({ tasks, cardId }) {
                                 <div
                                     style={t.isComplete ? { textDecoration: 'line-through' } : {}}
                                     onClick={() => setEdit(t.id)}
-                                    className="task-caption"
-                                >
+                                    className="task-caption">
                                     {t.task}
                                 </div>
                             )}
@@ -109,8 +107,7 @@ export default function TaskList({ tasks, cardId }) {
                             alt="task"
                             className="task__img"
                             src={removeImg}
-                            onClick={() => removeTask(t)}
-                        ></img>
+                            onClick={() => removeTask(t)}></img>
                     </div>
                 );
             })}

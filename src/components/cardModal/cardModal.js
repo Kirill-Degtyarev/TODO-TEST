@@ -1,4 +1,4 @@
-import './cardModal.css';
+import './cardModal.scss';
 import filesImage from '../../resources/files.png';
 import fileImage from '../../resources/file.png';
 import React, { useEffect, useState } from 'react';

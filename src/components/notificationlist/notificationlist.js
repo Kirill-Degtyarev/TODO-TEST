@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './notificationlist.css';
+import './notificationlist.scss';
 import AvatarUtils from '../../utils/avatarUtils';
 import eyeImage from '../../resources/eye.png';
 import openImage from '../../resources/open.png';

@@ -1,5 +1,5 @@
 import AvatarUtils from '../../utils/avatarUtils';
-import './menu.css';
+import './menu.scss';
 import cameraImage from '../../resources/camera.png';
 import React, { useState } from 'react';
 import UsersAction from '../../actions/usersAction';
@@ -80,8 +80,7 @@ export default function Menu({ setOpenMenu, workspace, user, boards }) {
             className="menu-close-container"
             onClick={(e) => {
                 closeMenu(e);
-            }}
-        >
+            }}>
             {isRemovable ? (
                 <RemoveModal
                     l
@@ -125,8 +124,7 @@ export default function Menu({ setOpenMenu, workspace, user, boards }) {
                             className="menu-profile-displayname-info"
                             onClick={() => {
                                 setEditDisplayName(true);
-                            }}
-                        >
+                            }}>
                             {editDisplayName ? (
                                 <textarea
                                     maxLength="128"
@@ -255,8 +253,7 @@ export default function Menu({ setOpenMenu, workspace, user, boards }) {
                                         e.target.className === 'print-board-list'
                                             ? setOpenSelectBoard(!openSelectBoard)
                                             : (e = {});
-                                    }}
-                                >
+                                    }}>
                                     Выберите столбец
                                     {openSelectBoard
                                         ? boards.map((board) => {
@@ -265,8 +262,7 @@ export default function Menu({ setOpenMenu, workspace, user, boards }) {
                                                       onClick={() => {
                                                           printCardsInBoard(board);
                                                       }}
-                                                      key={board.id}
-                                                  >
+                                                      key={board.id}>
                                                       {board.name}
                                                   </li>
                                               );

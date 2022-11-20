@@ -18,7 +18,6 @@ export default class FileAction {
             });
         }
     }
-
     static async getHistoryFiles(cardId, historyId) {
         const storage = getStorage();
         const storageRef = ref(storage, cardId + '/' + historyId);
@@ -34,7 +33,6 @@ export default class FileAction {
         }
         return items;
     }
-
     static async uploadNewProfileImage(file, user) {
         let resultURL = '';
         const storage = getStorage();
@@ -53,7 +51,6 @@ export default class FileAction {
             });
         return resultURL;
     }
-
     static async removeAttachements(cardId) {
         const storage = getStorage();
         const storageRef = ref(storage, cardId);

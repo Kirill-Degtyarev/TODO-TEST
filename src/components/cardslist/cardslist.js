@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import TagsAction from '../../actions/tagsAction';
 import CardModal from '../cardModal/cardModal';
-import './cardslist.css';
+import './cardslist.scss';
 import captionImage from '../../resources/caption.png';
 import eyeImage from '../../resources/eyeBlack.png';
 import commentCountImage from '../../resources/commentCount.png';

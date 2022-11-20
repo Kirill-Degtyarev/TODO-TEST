@@ -1,5 +1,5 @@
 import React from 'react';
-import './removeModal.css';
+import './removeModal.scss';
 
 export function RemoveModal({ setIsRemovable, removeFunction, type }) {
     function remove() {
@@ -15,7 +15,7 @@ export function RemoveModal({ setIsRemovable, removeFunction, type }) {
         <div className="modal-remove-close-container" onClick={(e) => closeRemoveModal(e)}>
             <div className="modal-remove-content-container">
                 <h2>
-                    Вы действительно хотите удалить эту{' '}
+                    Вы действительно хотите удалить эту
                     {type === 'card'
                         ? 'карточку'
                         : type === 'workspace'
