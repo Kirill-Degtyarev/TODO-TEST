@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
+
 import WorkSpaceAction from '../../actions/workspaceAction';
-import BoardList from '../boardslist/boardslist';
 import AuthAction from '../../actions/authAction';
 import BoardsAction from '../../actions/boardsAction';
 import UserNotificationAction from '../../actions/userNotificationAction';
-import notifyImage from '../../resources/notify.png';
-import './main.scss';
+import BoardList from '../boardslist/boardslist';
 import NotificationList from '../notificationlist/notificationlist';
 import Menu from '../menu/menu';
+
+import notifyImage from '../../resources/notify.png';
+
+import './main.scss';
 
 export default function Main({ user }) {
     const [workSpaces, setWorkSpaces] = useState([]);

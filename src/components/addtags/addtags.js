@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+
 import TagsAction from '../../actions/tagsAction';
-import './addtags.css';
-import checkImage from '../../resources/check.png';
-import editImage from '../../resources/edit.png';
 import { RemoveModal } from '../removeModal/removeModal';
+
+import editImage from '../../resources/edit.png';
+import checkImage from '../../resources/check.png';
+
+import './addtags.scss';
 
 export default function AddTags({ cardId, workSpaceId }) {
     const [tags, setTags] = useState([]);

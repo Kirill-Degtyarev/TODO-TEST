@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { auth } from '../../firebase-config';
+
 import UsersAction from '../../actions/usersAction';
 import WorkSpaceAction from '../../actions/workspaceAction';
-import { auth } from '../../firebase-config';
-import AvatarUtils from '../../utils/avatarUtils';
-import './addusers.css';
-import checkImage from '../../resources/check.png';
 import CardsAction from '../../actions/cardsAction';
+import AvatarUtils from '../../utils/avatarUtils';
+
+import checkImage from '../../resources/check.png';
 import removeImage from '../../resources/remove.png';
+
+import './addusers.scss';
 
 export default function AddUsers({ workspaceId, card, setCurrentCard, setAddUser }) {
     const [users, setUsers] = useState([]);

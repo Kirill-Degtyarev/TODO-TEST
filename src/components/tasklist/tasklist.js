@@ -1,8 +1,12 @@
-import './tasklist.scss';
-import removeImg from '../../resources/remove.png';
 import React, { useState } from 'react';
+
 import TaskListAction from '../../actions/taskListAction';
 import Task from '../../models/task';
+
+import removeImg from '../../resources/remove.png';
+
+import './tasklist.scss';
+
 export default function TaskList({ tasks, cardId }) {
     const [edit, setEdit] = useState('');
     const [currentTask, setCurrentTask] = useState(null);

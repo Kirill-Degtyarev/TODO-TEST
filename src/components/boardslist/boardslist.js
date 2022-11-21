@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import CardList from '../cardslist/cardslist';
-import './boardslist.css';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import CardsAction from '../../actions/cardsAction';
 import BoardsAction from '../../actions/boardsAction';
-import basketImage from '../../resources/basket.png';
 import CardHistoryAction from '../../actions/cardHistoryAction';
 import Board from '../../models/board';
 import Card from '../../models/card';
+
+import CardList from '../cardslist/cardslist';
+
+import basketImage from '../../resources/basket.png';
+
+import './boardslist.scss';
 
 export default function BoardList({ boards, setBoards, user, workSpace }) {
     const [cards, setCards] = useState([]);
@@ -170,8 +172,7 @@ export default function BoardList({ boards, setBoards, user, workSpace }) {
                               onDragEnd={(e) => {
                                   dragEndBoard(e);
                               }}
-                              draggable={draggableBoard}
-                          >
+                              draggable={draggableBoard}>
                               <div className="board-name-container">
                                   <div
                                       className="board-name"
@@ -181,8 +182,7 @@ export default function BoardList({ boards, setBoards, user, workSpace }) {
                                       }}
                                       onEnded={(e) => {
                                           console.log(e);
-                                      }}
-                                  >
+                                      }}>
                                       {board.id !== editName ? (
                                           board.name
                                       ) : (
@@ -234,8 +234,7 @@ export default function BoardList({ boards, setBoards, user, workSpace }) {
                               </div>
                               <div
                                   onClick={() => setAddNewCard(board.id)}
-                                  className="add-new-card-container"
-                              >
+                                  className="add-new-card-container">
                                   {addNewCard === board.id ? (
                                       <textarea
                                           maxLength={128}

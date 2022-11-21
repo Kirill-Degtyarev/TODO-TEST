@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './removeModal.scss';
 
 export function RemoveModal({ setIsRemovable, removeFunction, type }) {

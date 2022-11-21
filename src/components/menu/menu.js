@@ -1,15 +1,18 @@
-import AvatarUtils from '../../utils/avatarUtils';
-import './menu.scss';
-import cameraImage from '../../resources/camera.png';
 import React, { useState } from 'react';
-import UsersAction from '../../actions/usersAction';
-import FileAction from '../../actions/fileAction';
-import WorkSpaceAction from '../../actions/workspaceAction';
-import AddUsers from '../addusers/addusers';
-import AddTags from '../addtags/addtags';
+import { auth } from '../../firebase-config';
+
 import { RemoveModal } from '../removeModal/removeModal';
 import PrintAction from '../../actions/printAction';
-import { auth } from '../../firebase-config';
+import UsersAction from '../../actions/usersAction';
+import WorkSpaceAction from '../../actions/workspaceAction';
+import FileAction from '../../actions/fileAction';
+import AvatarUtils from '../../utils/avatarUtils';
+import AddUsers from '../addusers/addusers';
+import AddTags from '../addtags/addtags';
+
+import cameraImage from '../../resources/camera.png';
+
+import './menu.scss';
 
 export default function Menu({ setOpenMenu, workspace, user, boards }) {
     const [newPhoto, setNewPhoto] = useState();

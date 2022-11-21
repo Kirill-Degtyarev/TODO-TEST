@@ -1,17 +1,20 @@
-import './cardModal.scss';
-import filesImage from '../../resources/files.png';
-import fileImage from '../../resources/file.png';
 import React, { useEffect, useState } from 'react';
+import { auth } from '../../firebase-config';
+
 import CardHistoryAction from '../../actions/cardHistoryAction';
 import TaskListAction from '../../actions/taskListAction';
-import AvatarUtils from '../../utils/avatarUtils';
 import CardsAction from '../../actions/cardsAction';
-import { auth } from '../../firebase-config';
+import AvatarUtils from '../../utils/avatarUtils';
 import TaskList from '../tasklist/tasklist';
 import AddTags from '../addtags/addtags';
 import AddUsers from '../addusers/addusers';
 import Loader from '../loader/loader';
 import { RemoveModal } from '../removeModal/removeModal';
+
+import fileImage from '../../resources/file.png';
+import filesImage from '../../resources/files.png';
+
+import './cardModal.scss';
 
 export default function CardModal({
     workSpaceId,

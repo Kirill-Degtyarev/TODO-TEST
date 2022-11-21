@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import AuthAction from '../../actions/authAction';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase-config';
-import './login.scss';
+import AuthAction from '../../actions/authAction';
+
 import lockImage from '../../resources/Lock.svg';
+
+import './login.scss';
+
 export default function Login({ setUser }) {
     const [registrationDisplayName, setRegistrationDisplayName] = useState('');
     const [loginEmail, setLoginEmail] = useState('');

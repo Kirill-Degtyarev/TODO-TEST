@@ -1,10 +1,12 @@
 import React from 'react';
 
-import './notificationlist.scss';
 import AvatarUtils from '../../utils/avatarUtils';
+import UserNotificationAction from '../../actions/userNotificationAction';
+
 import eyeImage from '../../resources/eye.png';
 import openImage from '../../resources/open.png';
-import UserNotificationAction from '../../actions/userNotificationAction';
+
+import './notificationlist.scss';
 
 export default function NotificationList({ setOpenNotificationList, notifications }) {
     const formatter = new Intl.DateTimeFormat('ru', {
