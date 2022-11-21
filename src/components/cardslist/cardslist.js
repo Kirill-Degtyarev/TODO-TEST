@@ -22,7 +22,7 @@ export default function CardList({
     const [openCardModal, setOpenCardModal] = useState(false);
     const [currentCard, setCurrentCard] = useState(null);
     const [tags, setTags] = useState([]);
-
+    const currentDate = new Date().toISOString();
     useEffect(() => {
         TagsAction.getTags(setTags, workSpaceId);
     }, [workSpaceId]);
@@ -70,7 +70,7 @@ export default function CardList({
     }
     return (
         <div className="cards-container">
-            {openCardModal ? (
+            {openCardModal && (
                 <CardModal
                     workSpaceId={workSpaceId}
                     setDraggableBoard={setDraggableBoard}
@@ -79,9 +79,8 @@ export default function CardList({
                     setCurrentCard={setCurrentCard}
                     setOpenCardModal={setOpenCardModal}
                     boards={boards}
+                    overdue={currentCard.date.toISOString() < currentDate}
                 />
-            ) : (
-                ''
             )}
             {cards.map((card) => {
                 return (
@@ -108,6 +107,9 @@ export default function CardList({
                         onDrop={(e) => {
                             dropCard(e, card);
                         }}>
+                        {card.date.toISOString() < currentDate && (
+                            <h2 className="overdue">Пропущен срок завершения работы!</h2>
+                        )}
                         <div className="card-tags">
                             {tags
                                 .filter((tag) => tag.cardids.includes(card.id))
@@ -124,27 +126,21 @@ export default function CardList({
                         </div>
                         <div className="card-name">{card.name}</div>
                         <div className="widgets">
-                            {card.caption !== '' && card.caption !== null ? (
+                            {card.caption !== '' && card.caption !== null && (
                                 <img
                                     title="Эта карточка с описанием"
                                     src={captionImage}
                                     alt="title"
                                 />
-                            ) : (
-                                ''
                             )}
-                            {card.users.includes(auth.currentUser.email) ? (
+                            {card.users.includes(auth.currentUser.email) && (
                                 <img title="Вы участник этой карточки" src={eyeImage} alt="title" />
-                            ) : (
-                                ''
                             )}
-                            {card.commentCount > 0 ? (
+                            {card.commentCount > 0 && (
                                 <div>
                                     <img title="Комментарии" src={commentCountImage} alt="title" />
                                     {card.commentCount}
                                 </div>
-                            ) : (
-                                ''
                             )}
                         </div>
                     </div>

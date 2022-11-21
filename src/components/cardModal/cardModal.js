@@ -24,6 +24,7 @@ export default function CardModal({
     setCurrentCard,
     setDraggableBoard,
     boards,
+    overdue,
 }) {
     const [commentText, setCommentText] = useState('');
     const [commentFiles, setCommentFiles] = useState([]);
@@ -38,7 +39,6 @@ export default function CardModal({
     const [addUsers, setAddUsers] = useState(false);
     const [isRemovable, setIsRemovable] = useState(false);
     const [moveInBoard, setMoveInBoard] = useState(false);
-
     const formatter = new Intl.DateTimeFormat('ru', {
         weekday: 'long',
         year: 'numeric',
@@ -47,14 +47,17 @@ export default function CardModal({
         hour: 'numeric',
         minute: 'numeric',
     });
+
     useEffect(() => {
         CardHistoryAction.getHistory(setHistory, card.id);
         TaskListAction.getTaskList(card.id, setTaskList);
     }, [card.id]);
+
     function resizeTextArea(e) {
         e.target.style.height = 'auto';
         e.target.style.height = e.target.scrollHeight + 'px';
     }
+
     function changeCommentText(e) {
         resizeTextArea(e);
         setCommentText(e.target.value);
@@ -101,6 +104,7 @@ export default function CardModal({
     function openImage(url) {
         window.open(url);
     }
+
     function closeCardModal(e) {
         if (e.target.className === 'card-modal-container') {
             setOpenCardModal(false);
@@ -108,6 +112,7 @@ export default function CardModal({
             setDraggableBoard(true);
         }
     }
+
     async function endEditNameOrCaption(e, card, property) {
         if (property === 'name') {
             const newCardName = e.target.value;
@@ -129,12 +134,14 @@ export default function CardModal({
             setEditCaption(false);
         }
     }
+
     async function updateCardDate(e, cardDate) {
         if (cardDate.toISOString().substring(0, 16) !== e.target.value) {
             const newDate = new Date(e.target.value);
             await CardsAction.updateCardDate(newDate, card, workSpaceId);
         }
     }
+
     async function addCardDate() {
         if (addDate) {
             const newDate = new Date(addDateValue);
@@ -144,16 +151,19 @@ export default function CardModal({
             setAddDate(false);
         }
     }
+
     function changeAddDate() {
         const date = new Date();
         date.setHours(date.getHours() + 3);
         setAddDateValue(date.toISOString().substring(0, 16));
         setAddDate(true);
     }
+
     async function deleteTaskList() {
         TaskListAction.deleteCardTasks(taskList);
         setAddTaskList(false);
     }
+
     async function deleteDate() {
         setAddTaskList(false);
         await CardsAction.updateCardDate(null, card, workSpaceId);
@@ -161,22 +171,26 @@ export default function CardModal({
         setCurrentCard(card);
         setAddDate(false);
     }
+
     async function joinInCard() {
         card.users.push(auth.currentUser.email);
         setCurrentCard(card);
         await CardsAction.joinInCard(card, workSpaceId);
     }
+
     async function unsubscribeFromCard() {
         card.users = card.users.filter((user) => user !== auth.currentUser.email);
         setCurrentCard(card);
         await CardsAction.unsubscribeFromCard(card, workSpaceId);
     }
+
     async function removeCard() {
         await CardsAction.deleteCard(card);
         setCurrentCard(null);
         setDraggableBoard(true);
         setOpenCardModal(false);
     }
+
     async function moveToBoard(boardId) {
         card.boardId = boardId;
         let cardsInBoard = await CardsAction.getBoardCard(boardId);
@@ -188,6 +202,7 @@ export default function CardModal({
         await CardsAction.moveCard(card);
         setCurrentCard(card);
     }
+
     return (
         <div
             className="card-modal-container"
@@ -253,14 +268,17 @@ export default function CardModal({
                             <div className="card-modal-date">
                                 Срок
                                 {!addDate ? (
-                                    <input
-                                        onBlur={(e) => {
-                                            updateCardDate(e, card.date);
-                                        }}
-                                        className="card-date"
-                                        type="datetime-local"
-                                        defaultValue={card.date.toISOString().substring(0, 16)}
-                                    />
+                                    <div className="date-wr">
+                                        <input
+                                            onBlur={(e) => {
+                                                updateCardDate(e, card.date);
+                                            }}
+                                            className="card-date"
+                                            type="datetime-local"
+                                            defaultValue={card.date.toISOString().substring(0, 16)}
+                                        />
+                                        {overdue && <h2>Пропущен срок завершения работы!</h2>}
+                                    </div>
                                 ) : (
                                     <div className="date__body">
                                         <input
