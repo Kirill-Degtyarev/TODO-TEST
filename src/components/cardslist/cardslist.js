@@ -79,7 +79,7 @@ export default function CardList({
                     setCurrentCard={setCurrentCard}
                     setOpenCardModal={setOpenCardModal}
                     boards={boards}
-                    overdue={currentCard.date.toISOString() < currentDate}
+                    overdue={currentCard.date && currentCard.date.toISOString() < currentDate}
                 />
             )}
             {cards.map((card) => {
@@ -107,7 +107,7 @@ export default function CardList({
                         onDrop={(e) => {
                             dropCard(e, card);
                         }}>
-                        {card.date.toISOString() < currentDate && (
+                        {card.date && card.date.toISOString() < currentDate && (
                             <h2 className="overdue">Пропущен срок завершения работы!</h2>
                         )}
                         <div className="card-tags">
